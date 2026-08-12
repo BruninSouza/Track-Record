@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import IndexRail from "./components/IndexRail";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Work from "./components/Work";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
+import Problem from "./components/Problem";
+import TurningPoint from "./components/TurningPoint";
+import Results from "./components/Results";
+import Closing from "./components/Closing";
 import Footer from "./components/Footer";
 import { sections } from "./data/content";
 
@@ -36,10 +36,10 @@ function App() {
       <IndexRail activeId={activeId} />
       <main className="md:pl-14 lg:pl-16">
         <Hero />
-        <About />
-        <Work />
-        <Skills />
-        <Contact />
+        <Problem />
+        <TurningPoint />
+        <Results />
+        <Closing />
         <Footer />
       </main>
     </div>
