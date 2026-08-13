@@ -1,6 +1,8 @@
 # Aprenda Python — Estudo de Caso (Track Record)
 
-Página one-page em formato de **case/track record**, construída com **React**, **Vite** e **Tailwind CSS**, contando a história da construção da plataforma "Aprenda Python": problema → virada de chave → resultados → conclusão.
+Página one-page em formato de **case/track record**, construída com **React**, **Vite** e **Tailwind CSS**, contando a história da construção do guia interativo "Aprenda Python" (TCC de Bruno S. Costa, UFPB): problema → virada de chave → resultados → conclusão.
+
+> Conteúdo baseado no TCC original. O link do LinkedIn ainda precisa ser preenchido por você — veja o `TODO` em `src/data/content.js`.
 
 ## Rodando localmente
 
@@ -11,29 +13,25 @@ npm run dev
 
 Acesse `http://localhost:5173`.
 
+## Navegação
+
+- **Desktop:** rail fixo à esquerda, com a seção ativa destacada.
+- **Celular:** barra fixa no topo mostrando a seção atual; tocar em "Índice" abre a lista completa de seções em tela cheia.
+
+O conteúdo também é revelado com uma animação suave ao rolar a página (respeitando configurações de acessibilidade do sistema, como "reduzir movimento").
+
 ## Personalizando o conteúdo
 
-Todo o texto, os links e os espaços de imagem ficam em um único arquivo:
+Todo o texto e os links ficam em um único arquivo:
 
 ```
 src/data/content.js
 ```
 
-Procure por `TODO` dentro dele — são exatamente os pontos que você precisa preencher:
+Procure por `TODO` dentro dele — são exatamente os pontos que ainda faltam:
 
-- Seus links reais (GitHub do projeto, LinkedIn, e-mail, currículo)
-- Os espaços de imagem (`image.src` / `gallery`)
-
-## Como adicionar as imagens
-
-1. Coloque o arquivo de imagem dentro da pasta `public/` (ex: `public/hero.jpg`).
-2. Em `src/data/content.js`, troque `src: null` por `src: "/hero.jpg"`.
-3. A imagem substitui automaticamente o placeholder tracejado.
-
-Existem espaços de imagem em:
-- **Hero** — sua foto ou um mockup da plataforma no celular (`hero.image`)
-- **O Problema** — print ou diagrama do contexto (`problem.image`)
-- **Resultados** — galeria com até 3 evidências: telas do sistema, gráfico do formulário, foto da apresentação (`results.gallery`)
+- Confirmar/ajustar o link do repositório no GitHub
+- Adicionar seu LinkedIn
 
 ## Estrutura do projeto
 
@@ -45,8 +43,9 @@ src/
 │   ├── TurningPoint.jsx    Seção 3 — obstáculo e virada de chave
 │   ├── Results.jsx        Seção 4 — resultados e impacto
 │   ├── Closing.jsx        Seção 5 — conclusão e contato
-│   ├── ImageSlot.jsx      Placeholder de imagem reutilizável
-│   ├── IndexRail.jsx      Navegação lateral fixa (índice das seções)
+│   ├── IndexRail.jsx      Navegação lateral fixa (desktop)
+│   ├── MobileNav.jsx      Navegação em barra fixa + overlay (celular)
+│   ├── Reveal.jsx          Animação de entrada ao rolar a página
 │   └── Footer.jsx
 ├── data/
 │   └── content.js         ⭐ único arquivo que você edita

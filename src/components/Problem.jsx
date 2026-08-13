@@ -1,5 +1,5 @@
 import { problem } from "../data/content";
-import ImageSlot from "./ImageSlot";
+import Reveal from "./Reveal";
 
 export default function Problem() {
   return (
@@ -11,34 +11,30 @@ export default function Problem() {
         {problem.eyebrow}
       </p>
 
-      <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-        <div>
-          <h2 className="max-w-2xl font-display text-3xl leading-tight text-paper sm:text-4xl">
-            {problem.title}
-          </h2>
+      <Reveal>
+        <h2 className="max-w-2xl font-display text-3xl leading-tight text-paper sm:text-4xl">
+          {problem.title}
+        </h2>
 
-          <div className="mt-6 max-w-xl space-y-5">
-            {problem.paragraphs.map((paragraph, i) => (
-              <p key={i} className="text-lg leading-relaxed text-paper-dim">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-
-          <dl className="mt-10 grid gap-6 border-t border-line pt-8 sm:grid-cols-3">
-            {problem.highlights.map((item) => (
-              <div key={item.label}>
-                <dt className="font-mono text-xs uppercase tracking-widest text-paper-dim">
-                  {item.label}
-                </dt>
-                <dd className="mt-1 text-paper">{item.value}</dd>
-              </div>
-            ))}
-          </dl>
+        <div className="mt-6 max-w-2xl space-y-5">
+          {problem.paragraphs.map((paragraph, i) => (
+            <p key={i} className="text-lg leading-relaxed text-paper-dim">
+              {paragraph}
+            </p>
+          ))}
         </div>
 
-        <ImageSlot src={problem.image.src} alt={problem.image.alt} />
-      </div>
+        <dl className="mt-10 grid max-w-2xl gap-6 border-t border-line pt-8 sm:grid-cols-3">
+          {problem.highlights.map((item) => (
+            <div key={item.label}>
+              <dt className="font-mono text-xs uppercase tracking-widest text-paper-dim">
+                {item.label}
+              </dt>
+              <dd className="mt-1 text-paper">{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </Reveal>
     </section>
   );
 }

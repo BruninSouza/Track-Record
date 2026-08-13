@@ -1,5 +1,5 @@
 import { results } from "../data/content";
-import ImageSlot from "./ImageSlot";
+import Reveal from "./Reveal";
 
 export default function Results() {
   return (
@@ -23,7 +23,7 @@ export default function Results() {
         ))}
       </div>
 
-      <dl className="mt-12 grid gap-8 border-y border-line py-10 sm:grid-cols-3">
+      <Reveal as="dl" className="mt-12 grid gap-8 border-y border-line py-10 sm:grid-cols-3">
         {results.stats.map((stat) => (
           <div key={stat.label}>
             <dt className="font-display text-4xl text-ochre sm:text-5xl">
@@ -37,23 +37,11 @@ export default function Results() {
             </dd>
           </div>
         ))}
-      </dl>
+      </Reveal>
 
       <p className="mt-10 max-w-2xl border-l-2 border-indigo pl-6 font-display text-xl italic leading-snug text-paper-dim sm:text-2xl">
         {results.learning}
       </p>
-
-      {/* Galeria de evidências: prints, gráficos, fotos da apresentação */}
-      <div className="mt-14">
-        <p className="mb-6 font-mono text-xs uppercase tracking-widest text-paper-dim">
-          Evidências
-        </p>
-        <div className="grid gap-6 sm:grid-cols-3">
-          {results.gallery.map((item, i) => (
-            <ImageSlot key={i} src={item.src} alt={item.alt} ratio="aspect-[4/3]" />
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

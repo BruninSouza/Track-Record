@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import IndexRail from "./components/IndexRail";
+import MobileNav from "./components/MobileNav";
 import Hero from "./components/Hero";
 import Problem from "./components/Problem";
 import TurningPoint from "./components/TurningPoint";
@@ -34,6 +35,7 @@ function App() {
   return (
     <div className="bg-ink text-paper">
       <IndexRail activeId={activeId} />
+      <MobileNav activeId={activeId} />
       <main className="md:pl-14 lg:pl-16">
         <Hero />
         <Problem />
